@@ -27,6 +27,11 @@
 
 unsigned fator1, fator2, produto, estado;
 
+
+void escreverNumeroNoDisplay( int pinA, int pinB, int pinC,
+                              int pinD, int pinE, int pinF, 
+                              int pinG, int numero );
+
 void setup()
 {
   // Botoes
@@ -136,5 +141,93 @@ void loop()
 }
 
 //Funcao do display
+//Catodo comum
 //Display so muda apos o debounce
+void escreverNumeroNoDisplay( int pinA, int pinB, int pinC,
+                              int pinD, int pinE, int pinF, 
+                              int pinG, int numero ) {
+                                
+  switch( numero) {
+    case 0:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, HIGH);
+      digitalWrite( pinE, HIGH);
+      digitalWrite( pinF, HIGH);
+      digitalWrite( pinG, LOW);
+    case 1:
+      digitalWrite( pinA, LOW);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, LOW);
+      digitalWrite( pinE, LOW);
+      digitalWrite( pinF, LOW);
+      digitalWrite( pinG, LOW);
+    case 2:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, LOW);
+      digitalWrite( pinD, HIGH);
+      digitalWrite( pinE, HIGH);
+      digitalWrite( pinF, LOW);
+      digitalWrite( pinG, HIGH);
+    case 3:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, HIGH);
+      digitalWrite( pinE, LOW);
+      digitalWrite( pinF, LOW);
+      digitalWrite( pinG, HIGH);
+    case 4:
+      digitalWrite( pinA, LOW);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, LOW);
+      digitalWrite( pinE, LOW);
+      digitalWrite( pinF, HIGH);
+      digitalWrite( pinG, HIGH);
+    case 5:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, LOW);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, HIGH);
+      digitalWrite( pinE, LOW);
+      digitalWrite( pinF, HIGH);
+      digitalWrite( pinG, HIGH);
+    case 6:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, HIGH);
+      digitalWrite( pinE, LOW);
+      digitalWrite( pinF, HIGH);
+      digitalWrite( pinG, HIGH);
+    case 7:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, LOW);
+      digitalWrite( pinE, LOW);
+      digitalWrite( pinF, LOW);
+      digitalWrite( pinG, LOW);
+    case 8:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, HIGH);
+      digitalWrite( pinE, HIGH);
+      digitalWrite( pinF, HIGH);
+      digitalWrite( pinG, HIGH);
+    case 9:
+      digitalWrite( pinA, HIGH);
+      digitalWrite( pinB, HIGH);
+      digitalWrite( pinC, HIGH);
+      digitalWrite( pinD, LOW);
+      digitalWrite( pinE, LOW);
+      digitalWrite( pinF, HIGH);
+      digitalWrite( pinG, HIGH);
+  }
 
+}
