@@ -25,7 +25,7 @@
 // Tempo do debounce
 #define DEBOUNCE_TIME 500
 
-unsigned fator1, fator2, produto;
+unsigned fator1, fator2, produto, estado;
 
 void setup()
 {
@@ -35,28 +35,29 @@ void setup()
   
   // Display esquerdo 
   //( mais significativo )
-  pinMode(PIN_LED_1A, OUTPUT);
-  pinMode(PIN_LED_1B, OUTPUT);
-  pinMode(PIN_LED_1C, OUTPUT);
-  pinMode(PIN_LED_1D, OUTPUT);
-  pinMode(PIN_LED_1E, OUTPUT);
-  pinMode(PIN_LED_1F, OUTPUT);
-  pinMode(PIN_LED_1G, OUTPUT);
+  pinMode( PIN_LED_1A, OUTPUT);
+  pinMode( PIN_LED_1B, OUTPUT);
+  pinMode( PIN_LED_1C, OUTPUT);
+  pinMode( PIN_LED_1D, OUTPUT);
+  pinMode( PIN_LED_1E, OUTPUT);
+  pinMode( PIN_LED_1F, OUTPUT);
+  pinMode( PIN_LED_1G, OUTPUT);
 
   // Display direiro
   // Menos Significativo
 
-  pinMode(PIN_LED_2A, OUTPUT);
-  pinMode(PIN_LED_2B, OUTPUT);
-  pinMode(PIN_LED_2C, OUTPUT);
-  pinMode(PIN_LED_2D, OUTPUT);
-  pinMode(PIN_LED_2E, OUTPUT);
-  pinMode(PIN_LED_2F, OUTPUT);
-  pinMode(PIN_LED_2G, OUTPUT);
+  pinMode( PIN_LED_2A, OUTPUT);
+  pinMode( PIN_LED_2B, OUTPUT);
+  pinMode( PIN_LED_2C, OUTPUT);
+  pinMode( PIN_LED_2D, OUTPUT);
+  pinMode( PIN_LED_2E, OUTPUT);
+  pinMode( PIN_LED_2F, OUTPUT);
+  pinMode( PIN_LED_2G, OUTPUT);
   
   fator1 = 0;
   fator2 = 0;
   produto = 0;
+  estado = 0;
 }
 
 void loop()
@@ -64,13 +65,38 @@ void loop()
   
   if( digitalRead( PIN_BOTAO_1) == HIGH )  {
     //Soma ao fator do estado atual
-    
+    switch( estado) {
+      case 0:
+        if( fator1 == 9 )
+          fator1 = 0;
+        else
+          fator1++;
+      case 1:
+        if( fator2 == 9 )
+          fator2 = 0;
+        else
+          fator2++;
+    } 
     //Debounce
     delay( DEBOUNCE_TIME );
   }  
   else if( digitalRead( PIN_BOTAO_2) == HIGH ) {
     //Muda de estado
-    
+    switch( estado) {
+      case 0:
+        estado = 1;
+        break;
+      case 1:
+        produto = fator1 * fator2;
+        estado = 2;
+        break;
+      case 2:
+        fator1 = 0;
+        fator2 = 0;
+        produto = 0;
+        estado = 0;
+        break;
+    }    
     //Debounce
     delay( DEBOUNCE_TIME );  
   }
