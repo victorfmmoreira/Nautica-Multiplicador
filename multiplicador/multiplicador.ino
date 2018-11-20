@@ -120,6 +120,9 @@ void loop()
       digitalWrite( PIN_LED_1F, LOW );
       digitalWrite( PIN_LED_1G, LOW );
       //Display 2 mostra a entrada
+      escreverNumeroNoDisplay( PIN_LED_2A, PIN_LED_2B, PIN_LED_2C, 
+                               PIN_LED_2D, PIN_LED_2E, PIN_LED_2F, 
+                               PIN_LED_2G, fator1 );
     case 1:
       //Display 1 mostra o estado atual
       //Led do meio
@@ -131,11 +134,20 @@ void loop()
       digitalWrite( PIN_LED_1F, LOW );
       digitalWrite( PIN_LED_1G, HIGH );
       //Display 2 mostra a entrada
-    /*      
+      escreverNumeroNoDisplay( PIN_LED_2A, PIN_LED_2B, PIN_LED_2C, 
+                               PIN_LED_2D, PIN_LED_2E, PIN_LED_2F, 
+                               PIN_LED_2G, fator2 ); 
     case 2:
       //Display 1 mostra algarismo mais significativo
+      escreverNumeroNoDisplay( PIN_LED_2A, PIN_LED_2B, PIN_LED_2C, 
+                               PIN_LED_2D, PIN_LED_2E, PIN_LED_2F, 
+                               PIN_LED_2G, (int) produto / 10 ); 
+    
       //Display 2 mostra algarismo menos significativo
-    */
+      escreverNumeroNoDisplay( PIN_LED_2A, PIN_LED_2B, PIN_LED_2C, 
+                               PIN_LED_2D, PIN_LED_2E, PIN_LED_2F, 
+                               PIN_LED_2G, produto % 10 ); 
+      
   } 
 
 }
