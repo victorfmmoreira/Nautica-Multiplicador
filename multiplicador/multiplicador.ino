@@ -1,3 +1,4 @@
+//Pinos dos botoes.
 #define PIN_BOTAO_1 1
 #define PIN_BOTAO_2 2
 
@@ -13,13 +14,18 @@
 
 //Pinos do display direito
 //Menos significativo
-#define PIN_LED_2A 3
+#define PIN_LED_2A ( PIN_LED_1G + 1 )
 #define PIN_LED_2B ( PIN_LED_2A + 1 )
 #define PIN_LED_2C ( PIN_LED_2B + 1 )
 #define PIN_LED_2D ( PIN_LED_2C + 1 )
 #define PIN_LED_2E ( PIN_LED_2D + 1 )
 #define PIN_LED_2F ( PIN_LED_2E + 1 )
 #define PIN_LED_2G ( PIN_LED_2F + 1 )
+
+// Tempo do debounce
+#define DEBOUNCE_TIME 500
+
+unsigned fator1, fator2, produto;
 
 void setup()
 {
@@ -47,9 +53,25 @@ void setup()
   pinMode(PIN_LED_2E, OUTPUT);
   pinMode(PIN_LED_2F, OUTPUT);
   pinMode(PIN_LED_2G, OUTPUT);
+  
+  fator1 = 0;
+  fator2 = 0;
+  produto = 0;
 }
 
 void loop()
 {
   
+  if( digitalRead( PIN_BOTAO_1) == HIGH )  {
+    //Soma ao fator do estado atual
+    
+    //Debounce
+    delay( DEBOUNCE_TIME );
+  }  
+  else if( digitalRead( PIN_BOTAO_2) == HIGH ) {
+    //Muda de estado
+    
+    //Debounce
+    delay( DEBOUNCE_TIME );  
+  }
 }
