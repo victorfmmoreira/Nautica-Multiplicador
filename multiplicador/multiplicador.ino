@@ -100,4 +100,41 @@ void loop()
     //Debounce
     delay( DEBOUNCE_TIME );  
   }
+  
+  //Retorno no display
+  //O display so mudara apos o debouncer
+  switch( estado ) {
+    case 0:
+      //Display 1 mostra o estado atual
+      //Led superior
+      digitalWrite( PIN_LED_1A, HIGH );
+      digitalWrite( PIN_LED_1B, LOW );
+      digitalWrite( PIN_LED_1C, LOW );
+      digitalWrite( PIN_LED_1D, LOW );
+      digitalWrite( PIN_LED_1E, LOW );
+      digitalWrite( PIN_LED_1F, LOW );
+      digitalWrite( PIN_LED_1G, LOW );
+      //Display 2 mostra a entrada
+    case 1:
+      //Display 1 mostra o estado atual
+      //Led do meio
+      digitalWrite( PIN_LED_1A, LOW );
+      digitalWrite( PIN_LED_1B, LOW );
+      digitalWrite( PIN_LED_1C, LOW );
+      digitalWrite( PIN_LED_1D, LOW );
+      digitalWrite( PIN_LED_1E, LOW );
+      digitalWrite( PIN_LED_1F, LOW );
+      digitalWrite( PIN_LED_1G, HIGH );
+      //Display 2 mostra a entrada
+    /*      
+    case 2:
+      //Display 1 mostra algarismo mais significativo
+      //Display 2 mostra algarismo menos significativo
+    */
+  } 
+
 }
+
+//Funcao do display
+//Display so muda apos o debounce
+
