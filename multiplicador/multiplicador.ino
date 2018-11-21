@@ -139,9 +139,9 @@ void loop()
                                PIN_LED_2G, fator2 ); 
     case 2:
       //Display 1 mostra algarismo mais significativo
-      escreverNumeroNoDisplay( PIN_LED_2A, PIN_LED_2B, PIN_LED_2C, 
-                               PIN_LED_2D, PIN_LED_2E, PIN_LED_2F, 
-                               PIN_LED_2G, (int) produto / 10 ); 
+      escreverNumeroNoDisplay( PIN_LED_1A, PIN_LED_1B, PIN_LED_1C, 
+                               PIN_LED_1D, PIN_LED_1E, PIN_LED_1F, 
+                               PIN_LED_1G, (int) produto / 10 ); 
     
       //Display 2 mostra algarismo menos significativo
       escreverNumeroNoDisplay( PIN_LED_2A, PIN_LED_2B, PIN_LED_2C, 
